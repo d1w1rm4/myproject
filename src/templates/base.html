@@ -1,41 +1,39 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>VitalTrack</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
-        {% if active == "about" %}
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'style_about.css') }}">
-        {% endif %}
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    </head>
+<head>
+    <title>VitalTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if active == "about" %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_about.css') }}">
+    {% endif %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 
-    <body>
-        <header>
-            <div id="menu-bar">
-                <div class="logo-cont">
-               <img src="{{ url_for('static', filename = '../../logo/png/logo-no-background.png') }}"/>
-                </div>
-                <div class="nav-bar">
-               <ul>
-                <li><a href="{{ url_for('about') }}" class="{{ 'active' if active == 'about' }}">About</a></li>
-                <li><a href="{{ url_for('hello') }}" class="{{ 'active' if active == 'data' }}">Data</a></li>
-                <li><a href="">Users</a></li>
-                <li> <a href="{{ url_for('login') }}" class="{{ 'active' if active == 'login' }}">Log in</a></li>
-               </ul>
-            </div> 
+<body>
+    <header>
+        <div id="menu-bar">
+            <div class="logo-cont">
+                <img src="{{ url_for('static', filename='logo/png/logo-no-background.png') }}" alt="Logo">
             </div>
-           
-        </header>
-        <main>
-            {% block main %}
-            {% endblock %}
-               
-        </main>
-        
-    </body>
-</html>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="{{ url_for('about') }}" class="{{ 'active' if active == 'about' }}">About</a></li>
+                    <li><a href="{{ url_for('hello') }}" class="{{ 'active' if active == 'data' }}">Data</a></li>
+                    <li><a href="">Users</a></li>
+                    <li><a href="{{ url_for('login') }}" class="{{ 'active' if active == 'login' }}">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
 
-<script>
-    document.querySelector("header button").addEventListener("click", () => {
-        window.location.href = "{{ url_for('login') }}";
-    })
-</script>
+    <script>
+        document.querySelector("header").addEventListener("click", () => {
+            window.location.href = "{{ url_for('login') }}";
+        });
+    </script>
+</body>
+</html>
