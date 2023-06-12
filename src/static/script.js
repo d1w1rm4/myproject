@@ -38,6 +38,7 @@ let weeklyStats = {
 };
 
 let monthlyStats = {...weeklyStats};
+let users = [];
 
 function populatePlot(obj){
     let data = [{
@@ -115,6 +116,31 @@ function showAverage(){
     }
 }
 
+function getUsers(obj){
+    obj.forEach(x => {
+        if(users.includes(x["StudentNo"])){
+            return;
+        }
+        else{
+            users.push(x["StudentNo"])
+        }
+    });
+}
+
+function updateUsers(obj){
+    if(users.includes(obj["StudentNo"])){
+        return;
+    }
+    else{
+        users.push(obj["StudentNo"])
+    }
+}
+
+function showUsers(){
+    let headcount = document.querySelector("#headcount");
+    headcount.textContent = users.length.toString();
+}
+
 async function getData(){
     // Initialize plot
     let data = [{
@@ -138,6 +164,7 @@ async function getData(){
     };
 
     monthlyStats = {...weeklyStats};
+    users = [];
 
     // Get historical data (if there are any)
     let lastRecord = null;
@@ -148,6 +175,8 @@ async function getData(){
             populatePlot(Object.values(snapshot.val()))
             getAverage(Object.values(snapshot.val()))
             showAverage()
+            getUsers(Object.values(snapshot.val()));
+            showUsers();
         }
     })
     .catch((error) => {
@@ -163,6 +192,8 @@ async function getData(){
         extendPlot(data);
         updateAverage(data);
         showAverage();
+        updateUsers(data);
+        showUsers();
     });
 }
 
