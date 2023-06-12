@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block main %}
-<div>
-    <h2>Choose what place and vital signs do you want to see</h2>
+<div class="left-cont">
+    <h1>Choose what place and <label style="color: #729343;">Vital</label> signs do you want to see</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+</div>
+<div class="forms">
+    
     <div id="choices">
         <select id="place">
             <option selected>UP AECH, Diliman</option>
@@ -13,7 +17,7 @@
         </select>
     </div>
     <div id="graph"></div>
-    <div id="desc" style="width:100%; padding: 20px;">
+    <div id="desc" style="width:75%; padding: 20px;">
         <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
             <h3 style="margin: 0px;">Statistics:</h3>
             <select style="height: 30px; font-size:revert; padding: 5px;" id="stats">
@@ -26,6 +30,7 @@
             <li>Mean: <span id="mean"></span></li>
         </ul>
     </div>
+            
 </div>
 
 <script type="module" src="../static/script.js"></script>
