@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <title>VitalTrack</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style_user.css') }}">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="menu-bar">
+                <h1>VitalTrack</h1>
+            </div>
+            <button>Log out</button>
+        </header>
+        <main>
+            <div>
+                <h2>Welcome name!</h2>
+                <h2>You are assigned in UP AECH, Diliman</h2>
+            </div>
+            <div>
+                <form>
+                    <input type="search">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <div id="dashboard">
+                <div>
+                    <h2>Temperature</h2>
+                    <div id="graph1"></div>
+                    <div id="desc" style="width:100%; padding: 20px;">
+                        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
+                            <h3 style="margin: 0px;">Statistics:</h3>
+                            <select style="height: 30px; font-size:revert; padding: 5px;">
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                        <ul>
+                            <li>Mean:</li>
+                            <li>Median:</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h2>Heart rate</h2>
+                    <div id="graph2"></div>
+                    <div id="desc" style="width:100%; padding: 20px;">
+                        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
+                            <h3 style="margin: 0px;">Statistics:</h3>
+                            <select style="height: 30px; font-size:revert; padding: 5px;">
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                        <ul>
+                            <li>Mean:</li>
+                            <li>Median:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="sus">
+                The following individuals were sus:
+            </div>
+        </main>
+        <footer>
+            <p>Copyright 2023</p>
+        </footer>
+    </body>
+</html>
+
+<script>
+    document.querySelector("header button").addEventListener("click", () => {
+        window.location.href = "{{ url_for('logout') }}";
+    })
+
+    function rand() {
+        return Math.random();
+    }
+
+    function rand2(){
+        return Math.random() + 2;
+    }
+
+    function startGraph(){
+        let time = new Date();
+        let data1 = [{
+            x: [time],
+            y: [rand()],
+            mode: 'lines',
+            line: {color: '#80CAF6'}
+        }]
+        let data2 = [{
+            x: [time],
+            y: [rand2()],
+            mode: 'lines',
+            line: {color: '#80CAF6'}
+        }]
+
+        let layout = {
+            yaxis: {
+                range: [0, 4],
+                fixedrange: true
+            }
+        }
+
+        Plotly.newPlot("graph1", data1, layout);
+        Plotly.newPlot("graph2", data2, layout);
+    }
+
+    function continueGraph() {
+        let time = new Date();
+        let update1 = {
+            x:  [[time]],
+            y:  [[rand()]],
+        }
+        let update2 = {
+            x:  [[time]],
+            y:  [[rand2()]],
+        }
+
+        let olderTime = time.setMinutes(time.getMinutes() - 1);
+        let futureTime = time.setMinutes(time.getMinutes() + 1);
+        let minuteView = {
+            xaxis: {
+                type: 'date',
+                range: [olderTime,futureTime]
+            }
+        };
+
+        Plotly.relayout("graph1", minuteView);
+        Plotly.extendTraces("graph1", update1, [0])
+
+        Plotly.relayout("graph2", minuteView);
+        Plotly.extendTraces("graph2", update2, [0])
+    }
+
+    startGraph();
+    let interval = setInterval(continueGraph, 1000);
+</script>

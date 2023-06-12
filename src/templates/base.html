@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>VitalTrack</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+        {% if active == "about" %}
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style_about.css') }}">
+        {% endif %}
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="menu-bar">
+                <h1>VitalTrack</h1>
+                <a href="{{ url_for('about') }}" class="{{ 'active' if active == 'about' }}">About</a>
+                <a href="{{ url_for('hello') }}" class="{{ 'active' if active == 'data' }}">Data</a>
+            </div>
+            <button>Log in</button>
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        <footer>
+            <p>Copyright 2023</p>
+        </footer>
+    </body>
+</html>
+
+<script>
+    document.querySelector("header button").addEventListener("click", () => {
+        window.location.href = "{{ url_for('login') }}";
+    })
+</script>

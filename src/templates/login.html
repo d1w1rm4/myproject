@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style_login.css') }}">
+    </head>
+
+    <body>
+        <main>
+            <a href="{{ url_for('hello') }}" style="text-decoration: none;"><h2>VitalTrack</h2></a>
+            <form>
+                <input id="username" type="text" placeholder="Username" required>
+                <input id="password" type="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+        </main>
+    </body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        fetch("{{ url_for('login') }}", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify({
+                "username": document.querySelector("#username").value,
+                "password": document.querySelector("#password").value
+            })
+        })
+        .then(d => {
+            if(d.status === 200){
+                window.location = "{{ url_for('user') }}"
+            }
+            else{
+                console.log("Error");
+            }
+        })
+    })
+</script>

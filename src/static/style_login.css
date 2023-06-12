@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    height: 100%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+
+    row-gap: 20px;
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+    row-gap: 10px;
+}
+
+input{
+    border-radius: 5px;
+    border: 1px solid black;
+
+    padding: 5px;
+}
+
+input[type=submit]{
+    width: 100%;
+}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div>
+    <h2>Choose what place and vital signs do you want to see</h2>
+    <div id="choices">
+        <select id="place">
+            <option selected>UP AECH, Diliman</option>
+        </select>
+        <select id="vital-signs">
+            <option value="Temperature" selected>Temperature</option>
+            <option value="HeartRate">Heart Rate</option>
+        </select>
+    </div>
+    <div id="graph"></div>
+    <div id="desc" style="width:100%; padding: 20px;">
+        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
+            <h3 style="margin: 0px;">Statistics:</h3>
+            <select style="height: 30px; font-size:revert; padding: 5px;" id="stats">
+                <option value="weekly">Last 7 days</option>
+                <option value="monthly">Last 30 days</option>
+            </select>
+        </div>
+        <ul>
+            <li>Number of persons: <span id="headcount"></span></li>
+            <li>Mean: <span id="mean"></span></li>
+        </ul>
+    </div>
+</div>
+
+<script type="module" src="../static/script.js"></script>
+
+{% endblock %}
