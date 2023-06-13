@@ -9,26 +9,34 @@
     <body>
         <header>
             <div id="menu-bar">
-                <h1>VitalTrack</h1>
+                <div class="logo-cont">
+                <img src="{{ url_for('static', filename = 'images/logo-no-background.png') }}" class="mainlogo"/>
+                </div>
+                <div class="nav-bar">
+                    <button>Log out</button>
+                </div>
             </div>
-            <button>Log out</button>
+            
         </header>
         <main>
-            <div>
-                <h2>Welcome name!</h2>
-                <h2>You are assigned in UP AECH, Diliman</h2>
+            <div class="left-cont">
+                <div class="logindetails">
+                <h1>Welcome! <label style="color: #729343; display: block;">Your name</label></h1>
+                <p>You are assigned in UP AECH, Diliman</p>
+                </div>
             </div>
-            <div>
+            <div class="forms">
+            <div >
                 <form>
-                    <input type="search">
-                    <input type="submit" value="Search">
+                    <input type="search" placeholder="Search...">
+                    <input type="submit" value="Search" class="searchbtn">
                 </form>
             </div>
             <div id="dashboard">
                 <div>
                     <h2>Temperature</h2>
                     <div id="graph1"></div>
-                    <div id="desc" style="width:100%; padding: 20px;">
+                    <div id="desc" style="width:88%; padding: 20px 0px;">
                         <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
                             <h3 style="margin: 0px;">Statistics:</h3>
                             <select style="height: 30px; font-size:revert; padding: 5px;">
@@ -45,7 +53,7 @@
                 <div>
                     <h2>Heart rate</h2>
                     <div id="graph2"></div>
-                    <div id="desc" style="width:100%; padding: 20px;">
+                    <div id="desc" style="width:91%; padding: 20px 0px;">
                         <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
                             <h3 style="margin: 0px;">Statistics:</h3>
                             <select style="height: 30px; font-size:revert; padding: 5px;">
@@ -63,10 +71,8 @@
             <div id="sus">
                 The following individuals were sus:
             </div>
+        </div>
         </main>
-        <footer>
-            <p>Copyright 2023</p>
-        </footer>
     </body>
 </html>
 
