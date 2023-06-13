@@ -12,13 +12,12 @@
         <header>
             <div id="menu-bar">
                 <div class="logo-cont">
-               <img src="{{ url_for('static', filename = '../../logo/png/logo-no-background.png') }}"/>
+               <img src="{{ url_for('static', filename = 'images/logo-no-background.png') }}" class="mainlogo"/>
                 </div>
                 <div class="nav-bar">
                <ul>
                 <li><a href="{{ url_for('about') }}" class="{{ 'active' if active == 'about' }}">About</a></li>
                 <li><a href="{{ url_for('hello') }}" class="{{ 'active' if active == 'data' }}">Data</a></li>
-                <li><a href="">Users</a></li>
                 <li> <a href="{{ url_for('login') }}" class="{{ 'active' if active == 'login' }}">Log in</a></li>
                </ul>
             </div> 

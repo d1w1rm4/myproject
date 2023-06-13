@@ -28,6 +28,9 @@ header h1{
 
 .logo-cont {
     width: 30%;
+    padding-top: 27px;
+    padding-left: 37px;
+
 }
 
 .nav-bar {
@@ -47,6 +50,10 @@ header h1{
     list-style: none;
 }
 
+.mainlogo {
+    width: 188px;
+}
+
 .nav-bar ul li a {
     text-transform: uppercase;
     color: #ffffff;
@@ -61,11 +68,12 @@ header button{
 
 .left-cont {
     width: 33%;
+ 
    
 }
 
 .left-cont h1 {
-    padding-top: 140px;
+    padding-top: 170px;
     font-size: 54px;
     line-height: 48px;
 }
@@ -73,12 +81,13 @@ header button{
 .forms {
     width: 67%;
     padding-top: 166px;
-    background: #729343;
+    background: #729343 no-repeat;
     color: #ffffff;
+    background-size: contain;
 }
 
 main{
-    background-color: #ffffff;
+    background: url(../static/images/dentist4-section-bg8.webp) no-repeat #ffffff;
     display: flex;
 }
 
