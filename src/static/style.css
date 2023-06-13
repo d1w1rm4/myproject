@@ -28,6 +28,9 @@ header h1{
 
 .logo-cont {
     width: 30%;
+    padding-top: 27px;
+    padding-left: 37px;
+
 }
 
 .nav-bar {
@@ -47,6 +50,10 @@ header h1{
     list-style: none;
 }
 
+.mainlogo {
+    width: 188px;
+}
+
 .nav-bar ul li a {
     text-transform: uppercase;
     color: #ffffff;
@@ -61,11 +68,13 @@ header button{
 
 .left-cont {
     width: 33%;
+    align-items: baseline;
+ 
    
 }
 
 .left-cont h1 {
-    padding-top: 140px;
+    padding-top: 170px;
     font-size: 54px;
     line-height: 48px;
 }
@@ -73,12 +82,13 @@ header button{
 .forms {
     width: 67%;
     padding-top: 166px;
-    background: #729343;
+    background: #729343 no-repeat;
     color: #ffffff;
+    background-size: contain;
 }
 
 main{
-    background-color: #ffffff;
+    background: url(../static/images/dentist4-section-bg8.webp) no-repeat #ffffff;
     display: flex;
 }
 
@@ -92,6 +102,14 @@ main > div{
     justify-items: center;
 
     width: fit-content;
+}
+
+input[type=search]{
+    width: 658px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 23px;
 }
 
 select{
@@ -119,4 +137,32 @@ footer p{
 
 a{
     text-decoration: none;
+}
+
+#dashboard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+    justify-items: left;
+    column-gap: 10px;
+    padding: 0;
+}
+
+#dashboard > div {
+    padding: 10px;
+    width: 90%;
+}
+
+.searchbtn {
+    background: #000000;
+    border: 0px;
+    padding: 15px 10px;
+    font-size: 17px;
+    color: #ffffff;
+    margin-left: -16px;
+    border-radius: 0px 10px 10px 0px;
+    vertical-align: bottom;
+    cursor: pointer;
 }

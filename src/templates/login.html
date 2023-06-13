@@ -5,8 +5,9 @@
     </head>
 
     <body>
-        <main>
-            <a href="{{ url_for('hello') }}" style="text-decoration: none;"><h2>VitalTrack</h2></a>
+        <img src="{{ url_for('static', filename = 'images/logo-white-color.png') }}"  class="loginlogo"/>
+        <main>    
+            <h2>LOGIN TO VITAL TRACK</h2>
             <form>
                 <input id="username" type="text" placeholder="Username" required>
                 <input id="password" type="password" placeholder="Password" required>
