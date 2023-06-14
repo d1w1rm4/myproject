@@ -5,13 +5,14 @@
     </head>
 
     <body>
-        <img src="{{ url_for('static', filename = 'images/logo-white-color.png') }}"  class="loginlogo"/>
+        <div id="snackbar">Invalid login. Please try again.</div>
+        <a href="/"><img src="{{ url_for('static', filename = 'images/logo-white-color.png') }}"  class="loginlogo"/></a>
         <main>    
-            <h2>LOGIN TO VITAL TRACK</h2>
+            <h2>LOG IN TO VITALTRACK</h2>
             <form>
-                <input id="username" type="text" placeholder="Email" required>
+                <input id="username" type="email" placeholder="Email" required>
                 <input id="password" type="password" placeholder="Password" required>
-                <input type="submit" value="Login">
+                <input type="submit" value="Log in">
             </form>
         </main>
     </body>
@@ -20,6 +21,8 @@
 <script>
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
+        e.target.querySelector("input[type=submit]").value = "...";
+        e.target.querySelector("input[type=submit]").disabled = true;
 
         fetch("{{ url_for('login') }}", {
             "method": "POST",
@@ -32,11 +35,16 @@
             })
         })
         .then(d => {
+            e.target.querySelector("input[type=submit]").value = "Log in";
+            e.target.querySelector("input[type=submit]").disabled = false;
+
             if(d.status === 200){
                 window.location = "{{ url_for('user') }}"
             }
             else{
-                console.log("Error");
+                let x = document.querySelector("#snackbar");
+                x.classList.add("show");
+                setTimeout(function(){ x.classList.remove("show") }, 3000);
             }
         })
     })

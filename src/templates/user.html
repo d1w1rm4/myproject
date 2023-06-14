@@ -8,140 +8,146 @@
 
     <body>
         <header>
-            <div id="menu-bar">
-                <div class="logo-cont">
-                <img src="{{ url_for('static', filename = 'images/logo-no-background.png') }}" class="mainlogo"/>
-                </div>
-                <div class="nav-bar">
-                    <button>Log out</button>
-                </div>
+            <div class="logo-cont">
+            <img src="{{ url_for('static', filename = 'images/logo-no-background.png') }}" class="mainlogo"/>
             </div>
-            
+            <div class="nav-bar">
+                <button>Log out</button>
+            </div>
         </header>
         <main>
             <div class="left-cont">
                 <div class="logindetails">
-                <h1>Welcome! <label style="color: #729343; display: block;">Your name</label></h1>
-                <p>You are assigned in UP AECH, Diliman</p>
+                    <h1>Welcome! <label style="color: #729343; display: block;">Braullo Jo</label></h1>
+                    <p>You are assigned in <span style="font-size: larger; font-weight: bolder;">UP AECH, Diliman</span>.</p>
                 </div>
             </div>
             <div class="forms">
-            <div >
-                <form>
-                    <input type="search" placeholder="Search...">
-                    <input type="submit" value="Search" class="searchbtn">
-                </form>
-            </div>
-            <div id="dashboard">
-                <div>
-                    <h2>Temperature</h2>
-                    <div id="graph1"></div>
-                    <div id="desc" style="width:88%; padding: 20px 0px;">
-                        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
-                            <h3 style="margin: 0px;">Statistics:</h3>
-                            <select style="height: 30px; font-size:revert; padding: 5px;">
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
-                            </select>
+                <div style="width: 95%;">
+                    <form id="keyword" style="width: 100%;">
+                        <input type="search" placeholder="Enter student number..." style="width: 90%;">
+                        <input type="submit" value="Search" class="searchbtn">
+                    </form>
+                </div>
+                <div id="profile" style="width: 95%; display: none;">
+                    <div id="nouser" style="display:none; text-align: center; font-size: large; font-weight: bold; color: rgb(236, 215, 215);">
+                        No user found.
+                    </div>
+                    <div id="user-info" style="display: flex; flex-direction: row; column-gap: 10px;">
+                        <div style="display: flex; align-items: center; justify-items: center; width: 15%;">
+                            <h1>Profile:</h1>
                         </div>
-                        <ul>
-                            <li>Mean:</li>
-                            <li>Median:</li>
-                        </ul>
+                        <div style="width: 100%; display: flex; flex-direction: column; row-gap: 10px;">
+                            <div class="data-row">
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Name:</p>
+                                    <p class="data-in-box"><span id="user-name"></span></p>
+                                </div>
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Temperature:</p>
+                                    <p class="data-in-box"><span id="user-temp"></span></p>
+                                </div>
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Status:</p>
+                                    <p class="data-in-box"><span id="user-status"></span></p>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Student Number:</p>
+                                    <p class="data-in-box"><span id="user-sn"></span></p>
+                                </div>
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Oxygen saturation level:</p>
+                                    <p class="data-in-box"><span id="user-hr"></span></p>
+                                </div>
+                                <div class="data-box" style="padding: 15px; height: 120px;">
+                                    <p class="header-in-box">Last date recorded:</p>
+                                    <p class="data-in-box"><span id="user-dtime"></span></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h2>Oxygen Saturation</h2>
-                    <div id="graph2"></div>
-                    <div id="desc" style="width:91%; padding: 20px 0px;">
-                        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
-                            <h3 style="margin: 0px;">Statistics:</h3>
-                            <select style="height: 30px; font-size:revert; padding: 5px;">
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
-                            </select>
+                <div id="dashboard">
+                    <div>
+                        <h1>Temperature</h1>
+                        <div style="display: flex; flex-direction: column; row-gap: 20px;">
+                            <div id="graph1"></div>
+                            <div id="desc" style="width:100%; display: flex; flex-direction: column; row-gap: 20px;">
+                                <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 53%;">
+                                    <h2 style="margin: 0px;">Statistics:</h2>
+                                    <select style="height: 30px;" id="temp-stats">
+                                        <option value="weekly">Last 7 days</option>
+                                        <option value="monthly">Last 30 days</option>
+                                    </select>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Number of person recorded:</p>
+                                        <p class="data-in-box"><span id="headcount"></span></p>
+                                    </div>
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Number of suspicious persons:</p>
+                                        <p class="data-in-box"><span id="tempcount"></span></p>
+                                    </div>
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Mean:</p>
+                                        <p class="data-in-box"><span id="TempMean"></span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <ul>
-                            <li>Mean:</li>
-                            <li>Median:</li>
-                        </ul>
+                    </div>
+                    <div>
+                        <h1>Oxygen saturation level</h1>
+                        <div style="display: flex; flex-direction: column; row-gap: 20px;">
+                            <div id="graph2"></div>
+                            <div id="desc" style="width:100%; display: flex; flex-direction: column; row-gap: 20px;">
+                                <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 53%;">
+                                    <h2 style="margin: 0px;">Statistics:</h2>
+                                    <select style="height: 30px;" id="hr-stats">
+                                        <option value="weekly">Last 7 days</option>
+                                        <option value="monthly">Last 30 days</option>
+                                    </select>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Number of person recorded:</p>
+                                        <p class="data-in-box"><span id="headcount"></span></p>
+                                    </div>
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Number of suspicious persons:</p>
+                                        <p class="data-in-box"><span id="HRcount"></span></p>
+                                    </div>
+                                    <div class="data-box" style="padding: 15px; height: 150px;">
+                                        <p class="header-in-box">Mean:</p>
+                                        <p class="data-in-box"><span id="HRMean"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sus" style="width: 95%">
+                    <h1>Suspicious individuals</h1>
+                    <p>The following individuals were found suspicious:</p>
+                    <div id="table" class="table">
+                        <div class="row header">
+                            <div>Student Number</div>
+                            <div>Name</div>
+                            <div>Temperature</div>
+                            <div>Oxygen Saturation Level</div>
+                            <div>Date Recorded</div>
+                        </div>
+                        <div id="nodata">
+                            No suspicious individuals
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="sus">
-                The following individuals were sus:
-            </div>
-        </div>
         </main>
     </body>
 </html>
 
-<script>
-    document.querySelector("header button").addEventListener("click", () => {
-        window.location.href = "{{ url_for('logout') }}";
-    })
-
-    function rand() {
-        return Math.random();
-    }
-
-    function rand2(){
-        return Math.random() + 2;
-    }
-
-    function startGraph(){
-        let time = new Date();
-        let data1 = [{
-            x: [time],
-            y: [rand()],
-            mode: 'lines',
-            line: {color: '#80CAF6'}
-        }]
-        let data2 = [{
-            x: [time],
-            y: [rand2()],
-            mode: 'lines',
-            line: {color: '#80CAF6'}
-        }]
-
-        let layout = {
-            yaxis: {
-                range: [0, 4],
-                fixedrange: true
-            }
-        }
-
-        Plotly.newPlot("graph1", data1, layout);
-        Plotly.newPlot("graph2", data2, layout);
-    }
-
-    function continueGraph() {
-        let time = new Date();
-        let update1 = {
-            x:  [[time]],
-            y:  [[rand()]],
-        }
-        let update2 = {
-            x:  [[time]],
-            y:  [[rand2()]],
-        }
-
-        let olderTime = time.setMinutes(time.getMinutes() - 1);
-        let futureTime = time.setMinutes(time.getMinutes() + 1);
-        let minuteView = {
-            xaxis: {
-                type: 'date',
-                range: [olderTime,futureTime]
-            }
-        };
-
-        Plotly.relayout("graph1", minuteView);
-        Plotly.extendTraces("graph1", update1, [0])
-
-        Plotly.relayout("graph2", minuteView);
-        Plotly.extendTraces("graph2", update2, [0])
-    }
-
-    startGraph();
-    let interval = setInterval(continueGraph, 1000);
-</script>
+<script type="module" src="../static/script_user.js"></script>

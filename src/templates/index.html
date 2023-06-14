@@ -2,37 +2,65 @@
 
 {% block main %}
 <div class="left-cont">
-    <h1>Choose which place and <label style="color: #729343;">vital</label> signs you would like to see</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+    <h1>Choose which place and <label style="color: #729343;">vital</label> sign you would like to see</h1>
+    <p> VitalTrack is a body temperature and blood oxygen saturation monitoring device that provides real-time feedback to the user through an OLED screen. It stores relevant information, such as personal details gathered via an RFID system, location, body temperature, and oxygen saturation levels, to a web server.</p>
 </div>
 <div class="forms">
     
     <div id="choices">
+        <select id="vital-signs">
+            <option value="Temp" selected>Temperature</option>
+            <option value="SpO2">Oxygen saturation level</option>
+        </select>
+        <p style="font-size: xx-large; font-weight: bold;">of people in</p>
         <select id="place">
             <option selected>UP AECH, Diliman</option>
         </select>
-        <select id="vital-signs">
-            <option value="Temperature" selected>Temperature</option>
-            <option value="OxygenSaturation">Oxygen Saturation</option>
-        </select>
     </div>
-    <div id="graph"></div>
-    <div id="desc" style="width:67%; padding: 20px;">
-        <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 60%;">
-            <h3 style="margin: 0px;">Statistics:</h3>
-            <select style="height: 30px; font-size:revert; padding: 5px;" id="stats">
-                <option value="weekly">Last 7 days</option>
-                <option value="monthly">Last 30 days</option>
-            </select>
+
+    <div style="display: flex; flex-direction: column; row-gap: 20px;">
+        <div id="graph"></div>
+        <div id="desc" style="width:100%; display: flex; flex-direction: column; row-gap: 30px;">
+            <div id="desc-header" style="display: flex; flex-direction: row; column-gap: 77%;">
+                <h2 style="margin: 0px;">Statistics:</h2>
+                <select style="height: 30px;" id="stats">
+                    <option value="weekly">Last 7 days</option>
+                    <option value="monthly">Last 30 days</option>
+                </select>
+            </div>
+            <div class="data-row">
+                <div class="data-box" style="padding: 15px; height: 150px;">
+                    <p class="header-in-box">Number of person recorded:</p>
+                    <p class="data-in-box"><span id="headcount"></span></p>
+                </div>
+                <div class="data-box" style="padding: 15px; height: 150px;">
+                    <p class="header-in-box">Number of suspicious persons:</p>
+                    <p class="data-in-box"><span id="susCount"></span></p>
+                </div>
+                <div class="data-box" style="padding: 15px; height: 150px;">
+                    <p class="header-in-box">Mean:</p>
+                    <p class="data-in-box"><span id="mean"></span></p>
+                </div>
+            </div>
         </div>
-        <ul>
-            <li>Number of persons: <span id="headcount"></span></li>
-            <li>Mean: <span id="mean"></span></li>
-        </ul>
     </div>
             
 </div>
 
 <script type="module" src="../static/script.js"></script>
+<script>
+    document.querySelector("#vital-signs").addEventListener("change", (e)=> {
+        if(e.target.value === "Temp"){
+            e.target.style.width = "205px";
+        }
+        else{
+            e.target.style.width = "auto";
+        }
+    })
+
+    window.addEventListener("load", ()=>{
+        document.querySelector("#vital-signs").value = "Temp"
+    })
+</script>
 
 {% endblock %}

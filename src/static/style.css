@@ -1,12 +1,15 @@
 body{
     margin: 0;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 header{
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-items: center;
-    column-gap: 30px;
+    column-gap: 40px;
+
     width: 100%;
     position: absolute;
 }
@@ -16,21 +19,10 @@ header h1{
     margin-right: 20px;
 }
 
-#menu-bar{
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-    column-gap: 40px;
-}
-
 .logo-cont {
     width: 30%;
     padding-top: 27px;
     padding-left: 37px;
-
 }
 
 .nav-bar {
@@ -43,7 +35,7 @@ header h1{
 .nav-bar ul {
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 60px;
 }
 
 .nav-bar ul li {
@@ -56,15 +48,38 @@ header h1{
 
 .nav-bar ul li a {
     text-transform: uppercase;
+    font-size: larger;
     color: #ffffff;
 }
 
-header button{
-    height: 40px;
-    width: 80px;
-    border-radius: 5px;
-    border: 1px solid black;
+.nav-bar ul li a:hover{
+    cursor: pointer;
+    color: black;
 }
+
+.active{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+header button{
+    height: 50px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+header button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+/* MAIN */
 
 .left-cont {
     width: 33%;
@@ -85,6 +100,44 @@ header button{
     background: #729343 no-repeat;
     color: #ffffff;
     background-size: contain;
+}
+
+#choices{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+}
+
+select{
+    background: none;
+    appearance: none;
+    margin: 0;
+    border: none;
+    width: auto;
+    color: white;
+}
+
+#choices select{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+select:hover{
+    appearance: auto;
+    cursor: pointer;
+    color: black;
+}
+
+#stats, #temp-stats, #HR-stats{
+    appearance: auto;
+}
+
+#choices > select:nth-child(1){
+    width: 205px;
 }
 
 main{
@@ -112,31 +165,56 @@ input[type=search]{
     font-size: 23px;
 }
 
-select{
-    height: 50px;
-    width: 343px;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: x-large;
-
-    margin-right: 10px;
+a{
+    text-decoration: none;
 }
 
-footer{
-    text-align: center;
-    font-size: smaller;
-
-    padding: 30px;
-
-    background-color: lightgreen;
+#graph{
+    height: 650px;
+    width: 900px;
 }
 
-footer p{
+.data-row{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+
+    font-weight: bold;
+}
+
+.data-box{
+    width: 33%;
+    height: 200px;
+    color: white;
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+
+    border-radius: 20px;
+    box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.5)
+}
+
+.data-box:hover{
+    background-color: white;
+    color: black;
+}
+
+.data-box p{
     margin: 0;
 }
 
-a{
-    text-decoration: none;
+.header-in-box{
+    text-align: left;
+    width: 100%;
+}
+
+.data-in-box{
+    font-weight: bolder;
+    font-size: 40px;
 }
 
 #dashboard {
@@ -165,4 +243,9 @@ a{
     border-radius: 0px 10px 10px 0px;
     vertical-align: bottom;
     cursor: pointer;
+    height: 51px;
+}
+
+#keyword input[type=search]:focus{
+    outline: none;
 }

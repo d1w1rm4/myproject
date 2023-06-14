@@ -3,8 +3,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: left;
-    justify-items: left;
+    justify-content: center;
+    justify-items: center;
     column-gap: 10px;
     padding: 0;
 }
@@ -14,3 +14,42 @@
     width: 90%;
 }
 
+.table{
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+
+    background-color: white;
+    color: black;
+}
+
+.row div{
+    padding: 15px;
+}
+
+.row:hover{
+    background-color: rgb(236, 215, 215);
+}
+
+.header div{
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
+#nodata{
+    text-align: center;
+    padding: 15px;
+    background-color: white;
+    color: black;
+}
+
+.abnormal{
+    color: red;
+}
