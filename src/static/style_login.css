@@ -1,7 +1,7 @@
 body{
     margin: 0;
-    display: grid;
     align-items: center;
+    text-align: center;
     justify-items: center;
     background: url(../static/images/dentist4-section-bg8.webp) #729343;
     height: 100%;
@@ -10,6 +10,7 @@ body{
 
 .loginlogo {
     width: 250px;
+    margin: 71px 0px;
 }
 
 main{
@@ -26,6 +27,7 @@ main{
     box-shadow: 3px 2px 25px 8px rgba(0,0,0,0.11);
 -webkit-box-shadow: 3px 2px 25px 8px rgba(0,0,0,0.11);
 -moz-box-shadow: 3px 2px 25px 8px rgba(0,0,0,0.11);
+margin: auto;
 }
 
 main form{

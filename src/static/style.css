@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-size: 16px;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
@@ -114,12 +115,10 @@ input[type=search]{
 
 select{
     height: 50px;
-    width: 343px;
+    width: 48%;
     border-radius: 10px;
     padding: 10px;
     font-size: x-large;
-
-    margin-right: 10px;
 }
 
 footer{
@@ -133,6 +132,18 @@ footer{
 
 footer p{
     margin: 0;
+}
+
+.main-svg {
+    width: 100%;
+}
+
+#graph {
+    width: 100%;
+}
+
+.svg-container {
+    width: 100%!important;
 }
 
 a{
@@ -165,4 +176,152 @@ a{
     border-radius: 0px 10px 10px 0px;
     vertical-align: bottom;
     cursor: pointer;
+}
+
+#choices {
+    width: 100%;
+    text-align: center;
+}
+
+/** RESPONSIVE CODE**/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    header {
+        position: inherit;
+    }
+    #menu-bar {
+        display: block;
+    }
+    .logo-cont {
+        margin: auto;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .nav-bar {
+        margin: auto;
+        justify-content: center;
+    }
+    .nav-bar ul li a {
+        color: #000000;
+    }
+
+    .nav-bar ul {
+        padding: 0px;
+    }
+    main {
+        display: block;
+    }
+    .left-cont h1 {
+        padding-top: 0px;
+
+    }
+    .left-cont h1 br {
+        display: none;
+    }
+    .left-cont {
+        width: 100%;
+        padding: 0px;
+    }
+    .left-cont p, .left-cont h1 {
+        padding: 0px 30px;
+    }
+    .forms {
+        width: 94%;
+        padding-top: 57px;
+    }
+
+    #desc {
+        width: 100%!important;
+    }
+
+    #dashboard {
+        display: block!important;
+    }
+
+    .logindetails {
+        width: 100%;
+        text-align: center;
+    }
+    #dashboard > div {
+        width: 100%!important;
+        padding: 0pc!important;
+    }
+
+    .search-cont {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    input[type=search] {
+        width: 85%;
+    }
+    .search-cont {
+        width: 100%;
+    }
+    #dashboard > div {
+        width: 100%!important;
+        padding: 0pc!important;
+    }
+    .logindetails {
+        width: 100%;
+        text-align: center;
+    }
+    header {
+        position: inherit;
+    }
+    #menu-bar {
+        display: block;
+    }
+    .logo-cont {
+        margin: auto;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .nav-bar {
+        margin: auto;
+        justify-content: center;
+    }
+    .nav-bar ul li a {
+        color: #000000;
+    }
+
+    .nav-bar ul {
+        padding: 0px;
+    }
+    main {
+        display: block;
+    }
+    .left-cont h1 {
+        padding-top: 0px;
+
+    }
+    .left-cont h1 br {
+        display: none;
+    }
+    .left-cont {
+        width: 100%;
+        padding: 0px;
+    }
+    .left-cont p, .left-cont h1 {
+        padding: 0px 30px;
+    }
+    .forms {
+        width: 92%;
+        padding-top: 57px;
+    }
+
+    #desc {
+        width: 100%!important;
+    }
+
+    #dashboard {
+        display: block!important;
+    }
+
 }
